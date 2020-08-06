@@ -1,4 +1,6 @@
 import React from 'react';
+import Home from './components/Home';
+import About from './components/About';
 
 export interface RouteDefinition {
   path: string;
@@ -15,14 +17,14 @@ export default {
     path: '/',
     anchor: 'Homepage',
     content: (
-      <h1>Hello home</h1>
+      <Home />
     )
   },
   about: {
     path: '/about',
     anchor: 'About',
     content: (
-      <h1>Hello about</h1>
+      <About />
     )
   },
 } as RouteDefinitionDictionary;
