@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import yieldLinks from './modules/router/yield-links';
-import yieldMatchedRouteContent from './modules/router/yield-matched-route-content';
-import routes from './routes';
+import yieldLinks from '../modules/router/yield-links';
+import yieldMatchedRouteContent from '../modules/router/yield-matched-route-content';
+import routes from '../routes';
 
 export default () => (
   <Router>
