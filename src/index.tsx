@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import './index.css';
 import App from './components/App';
+import rootReducer from './reducers';
 import * as serviceWorker from './serviceWorker';
+
+const devToolsExt = (process.env.NODE_ENV === 'development')
+  ? (window as any).__REDUX_DEVTOOLS_EXTENSION__
+  : () => {}
+
+const store =  createStore(
+  rootReducer,
+  devToolsExt()
+);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={ store }>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
