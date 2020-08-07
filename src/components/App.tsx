@@ -1,17 +1,25 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import yieldLinks from '../modules/router/yield-links';
-import yieldMatchedRouteContent from '../modules/router/yield-matched-route-content';
-import routes from '../routes';
+import { BrowserRouter, Switch, Link, Route } from 'react-router-dom';
+import loadable from '@loadable/component';
+
+const Home = loadable(() => import('./Home'));
+const About = loadable(() => import('./About'));
+
+const ROUTE = {
+  HOME: '/',
+  ABOUT: '/about',
+};
 
 export default () => (
-  <Router>
+  <BrowserRouter>
     <nav>
-      { Array.from(yieldLinks(routes)) }
+      <li><Link to={ ROUTE.HOME }>Homepage</Link></li>
+      <li><Link to={ ROUTE.ABOUT }>About</Link></li>
     </nav>
 
     <Switch>
-      { Array.from(yieldMatchedRouteContent(routes)) }
+      <Route exact path={ ROUTE.HOME }><Home /></Route>
+      <Route exact path={ ROUTE.ABOUT }><About /></Route>
     </Switch>
-  </Router>
+  </BrowserRouter>
 );
