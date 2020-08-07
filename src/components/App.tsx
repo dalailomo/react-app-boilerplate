@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter, Switch, Link, Route } from 'react-router-dom';
 import loadable from '@loadable/component';
 
-const Home = loadable(() => import('./Home'));
-const About = loadable(() => import('./About'));
+const Home = loadable(() => import('./Loadables/Home'));
+const About = loadable(() => import('./Loadables/About'));
 
 const ROUTE = {
   HOME: '/',
